@@ -4,6 +4,23 @@
     <title>Connect Rush</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Farcaster Mini App Metadata (ADDED) -->
+    <meta name="fc:miniapp" content='{
+      "version":"1",
+      "imageUrl":"https://namep.vercel.app/image.png",
+      "button":{
+        "title":"PROJECT NAME",
+        "action":{
+          "type":"launch_frame",
+          "name":"MINT",
+          "url":"https://namep.vercel.app",
+          "splashImageUrl":"https://namep.vercel.app/splash.png",
+          "splashBackgroundColor":"#100E09"
+        }
+      }
+    }' />
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     <style>
 	html, body {
@@ -111,5 +128,12 @@ body {
   </head>
   <body>
     <script type="text/javascript" src="./connectr.js"></script>
+
+    <!-- Farcaster Mini App SDK (ADDED) -->
+    <script type="module">
+      import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
+      // Let the Farcaster client know your app is ready inside the mini app container
+      sdk.actions.ready({ disableNativeGestures: true });
+    </script>
   </body>
 </html>
